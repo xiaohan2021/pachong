@@ -1,6 +1,8 @@
 # -*- encoding=UTF-8 -*-
 
 import requests  # http请求
+import random
+import re
 from bs4 import BeautifulSoup
 
 def qiushibaike():
@@ -217,6 +219,44 @@ def demo_exception():  # 异常演示
     finally:
         print('clean up')
 
+
+def demo_random():
+    # random.seed(1)
+    for i in range(0, 5):
+        print(1, random.randint(0, 100))
+    print(2, int(random.random() * 100))
+    print(3, random.choice(range(0, 100, 5)))
+    print(4, random.sample(range(0, 100, 10), 4))
+
+    lista = [1, 2, 3, 4, 5]
+    random.shuffle(lista)
+    print(5, lista)
+
+
+def demo_regex():
+    str = 'abc123def12gh15'
+    p1 = re.compile('[\d]+')
+    p2 = re.compile('\d')
+    print(1, p1.findall(str))
+    print(2, p2.findall(str))
+
+    str = 'a@163.com, b@google.com, c@qq.com, d@qq.com, d@163.com'
+    p3 = re.compile('[\w]+@[163|qq]+\.com')
+    print(3, p3.findall(str))
+
+    str = '<html><h>title</h><body>content</body></html>'
+    p4 = re.compile('<h>[^<]+</h>')
+    print(4, p4.findall(str))
+    p5 = re.compile('<h>[^<]+</h><body>[^<]+</body>')
+    print(5, p5.findall(str))
+
+    str = 'xxx2020-11-10xxxx'
+    p6 = re.compile('\d{4}-\d{2}-\d{2}')
+    print(6, p6.findall(str))
+
+
+
+
 if __name__ == '__main__':   # main方法，main后回车即可自动生成
     # print('hello world')
     # qiushibaike()
@@ -228,4 +268,6 @@ if __name__ == '__main__':   # main方法，main后回车即可自动生成
     # demo_dic()
     # demo_set()
     # demo_obj()
-    demo_exception()
+    # demo_exception()
+    # demo_random()
+    demo_regex()
