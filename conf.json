@@ -1,0 +1,9 @@
+{
+  "message_queue": "redis://127.0.0.1:6379/3",
+  "webui": {
+    "port": 5001,
+    "need_auth": true,
+    "username": "nowcoder",
+    "password": "123456"
+  }
+}
