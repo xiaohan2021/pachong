@@ -27,7 +27,7 @@ class Handler(BaseHandler):
             title, content, random.randint(1, 10), comment_count)
             print(sql)
             cursor.execute(sql)
-            print(cursor.lastrowid)
+            qid = cursor.lastrowid
             self.db.commit()
             return qid
         except Exception as e:
